@@ -48,11 +48,11 @@ resource "github_branch_protection" "branch_protection_for_repo" {
     required_approving_review_count = 1
   }
 
-  push_restrictions = [
-    data.github_user.daniil.node_id,
-    # limited to a list of one type of restriction (user, team, app)
-    # github_team.example.node_id
-  ]
+#  push_restrictions = [
+#    data.github_user.daniil.node_id,
+#    # limited to a list of one type of restriction (user, team, app)
+#    # github_team.example.node_id
+#  ]
   depends_on = [data.github_branch.main]
 }
 
@@ -62,10 +62,10 @@ resource "github_branch_protection" "branch_protection_for_repo" {
 
 
 
-
-data "github_user" "daniil" {
-  username = "pintjuk"
-}
+#
+#data "github_user" "daniil" {
+#  username = "pintjuk"
+#}
 
 
 #resource "github_team_repository" "grant_boeing_devs_push" {
@@ -75,13 +75,13 @@ data "github_user" "daniil" {
 #}
 
 
-resource "github_repository_collaborator" "grant_daniil_admin" {
-  repository = github_repository.filemage_client_go_repo.name
-  username   = data.github_user.daniil.username
-  permission = "admin"
-  depends_on = [github_repository.filemage_client_go_repo]
-}
-
+#resource "github_repository_collaborator" "grant_daniil_admin" {
+#  repository = github_repository.filemage_client_go_repo.name
+#  username   = data.github_user.daniil.username
+#  permission = "admin"
+#  depends_on = [github_repository.filemage_client_go_repo]
+#}
+#
 
 #resource "github_repository_collaborator" "grant_bivald_admin" {
 #  repository = local.repo_name
